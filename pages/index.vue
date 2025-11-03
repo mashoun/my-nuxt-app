@@ -1,8 +1,9 @@
 <template>
   <h1>SSR data</h1>
-  <p>{{ $firebaseName }}</p>
+  <!-- <p>{{ $db }}</p> -->
 </template>
 <script setup>
-const nuxtApp = useNuxtApp()
-console.log(nuxtApp.$firebaseName)
+const { $db } = useNuxtApp()
+const  data  = useMainData($db)
+console.log(data)
 </script>
