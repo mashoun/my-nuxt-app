@@ -1,5 +1,4 @@
-import { defineNuxtPlugin } from '#app'
-import { initializeApp, getApps, getApp } from 'firebase/app'
+import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -12,9 +11,10 @@ const firebaseConfig = {
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
+  const app = initializeApp(firebaseConfig)
   const db = getFirestore(app)
 
   nuxtApp.provide('firebase', app)
   nuxtApp.provide('db', db)
+  nuxtApp.provide('firebaseName', "Mashoun CDN")
 })
