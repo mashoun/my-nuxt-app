@@ -1,9 +1,8 @@
 <template>
+  <NuxtLoadingIndicator></NuxtLoadingIndicator>
   <h1>SSR data</h1>
-  <!-- <p>{{ $db }}</p> -->
+  <pre>{{ data }}</pre>
 </template>
 <script setup>
-const { $db } = useNuxtApp()
-const  data  = useMainData($db)
-console.log(data)
+const {data} = await useFetch("/api/getMainDoc")
 </script>
